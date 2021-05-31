@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> // Includes all standart libraries but isn't efficient
 
 using namespace std;
 
@@ -45,7 +45,7 @@ void Input(long long int &myNumber, string &whichOperation){
             cin >> myNumber;
             if(!cin) InputErrorNotCin(myNumber, whichOperation); // If myNumber isn't a number.
             else {
-                int n = log10(myNumber)+1; // Length of the number provided by the user.
+                int n = log10(myNumber)+1; // Length of the number.
                 int myNumberArray[n];
                 long long int myNumberOriginal = myNumber; // Storing the original number.
                 for(int i = 0; i < n; i++) {
@@ -56,10 +56,10 @@ void Input(long long int &myNumber, string &whichOperation){
                     }
                     myNumber /= 10;
                 }
-                myNumber = myNumberOriginal;
+                myNumber = myNumberOriginal; // Because we changed myNumber in a cycle.
             }
         }
-        else {
+        else { // whichOperation isn't 1 or 2
             system("cls");
             cout << "Choose a correct operation!" << endl;
             cout << endl; cout << endl;
@@ -148,12 +148,12 @@ string OutputBy(){
             whichOutput = "0";
         }
     }
-    return whichOutput; // Grazinama reiksme, jeigu ji tinkama bei buvo cikle.
+    return whichOutput;
 }
 
-void DecimalToBinaryConsole(long long int myNumber){ // Desimtainis i dvejetaini konsoles budu.
+void DecimalToBinaryConsole(long long int myNumber){
     cout << "Decimal " << myNumber << " converted to binary:" << endl;
-    int binaryByParts[100]; // Masyvas, skirtas dvejetainiui perrasyti
+    int binaryByParts[100];
     if(myNumber == 0 ) cout << "It's 0, of course." << endl;
     else if(myNumber == 1) cout << "It's 1, of course." << endl;
     else if(myNumber == -1) cout << "It's -1, of course." << endl;
